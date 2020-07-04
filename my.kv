@@ -1,0 +1,35 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Password: "
+
+            TextInput:
+                id: passw
+                multiline: False
+                password: True
+
+        Button:
+            text: "Submit"
+            on_release:
+                app.root.current = "second" if passw.text == "ashish" else "main"
+                root.manager.transition.direction = "left"
+
+
+<SecondWindow>:
+    name: "second"
+
+    MapView:
+        lat:27
+        lon:84
+        zoom:10
